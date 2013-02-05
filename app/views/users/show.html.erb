@@ -10,6 +10,17 @@
 		</section>
 
 	</aside>
+
+	<div class="span8">
+		<% if @user.clients.any? %>
+			<h3> Clients(<%= @user.clients.count %>)</h3>
+			<ol class="clients">
+				<%= render @clients %>
+
+			</ol>
+
+			<% end %>
+	</div>
 </div>
 
 

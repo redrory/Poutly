@@ -6,6 +6,7 @@
 			<h1>
 				<%= @user.name %>
 			</h1>
+				<%= @user.company %> <br>
 				<%= @user.email %>
 		</section>
 
@@ -14,10 +15,9 @@
 	<div class="span8">
 		<% if @user.clients.any? %>
 			<h3> Clients(<%= @user.clients.count %>)</h3>
-			<ol class="clients">
-				<%= render @clients %>
-
-			</ol>
+			<ul class="clients">
+					<%= render @clients %>
+			</ul>
 
 			<% end %>
 	</div>

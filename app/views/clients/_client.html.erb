@@ -3,6 +3,14 @@
 		<%= client.project_name%>
 	</span>
 
+	<span class="name">
+		<%= client.name%>
+	</span>
+
+	<span class="amount">
+		<%= client.amount%>
+	</span>
+
 	<span	class = "timestamp">
 		Posted <%= time_ago_in_words(client.created_at) %> ago.
 	</span>

@@ -1,8 +1,11 @@
 <%= form_for (@client) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
-		<%= f.text_field :project_name, placeholder: "Name of project" %>
+		<%= f.text_field :name, placeholder: "Name of Client" %>
+		<%= f.text_field :project_name, placeholder: "Name of Project" %>
+		<%= f.text_field :due_date, placeholder: "Payment Due Date" %>
+		<%= f.text_field :amount, placeholder: "Amount due" %>
 	</div>
 
-	<%= f.submit "Post", class: "btn btn-large btn-primary"%>
+	<%= f.submit "Add Client", class: "btn btn-large btn-primary"%>
 <% end %>

@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
 	def create
 		@client = current_user.clients.build(params[:client])
 		if @client.save
-			flash[:sucess] = "Client created"
+			flash[:success] = "Client created"
 			redirect_to root_url
 		else
 			@feed_items = []
@@ -19,6 +19,15 @@ class ClientsController < ApplicationController
 
 	def destroy
 		@client.destroy
+		redirect_to root_url
+		
+	end
+
+	def paid
+		# code to change PAID boolean value to yep
+		#@client = current_user.find_by_id(params[:id])
+		# @client.mark_paid - check admin code
+		flash[:success] = "Job marked as paid " 
 		redirect_to root_url
 		
 	end

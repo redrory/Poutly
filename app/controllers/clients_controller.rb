@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :corrent_user, only: :destroy
+	before_filter :correct_user, only: :destroy
 
 	def index
 		
@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
 
 	private
 
-def corrent_user
+def correct_user
 	@client = current_user.clients.find_by_id(params[:id])
 	redirect_to root_url if @client.nil?
 	

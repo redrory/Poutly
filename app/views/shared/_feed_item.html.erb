@@ -9,7 +9,7 @@
   <%= link_to "Delete", feed_item, method: :delete, 
   		data: {confirm: "You sure"}, title: feed_item.project_name  %>
 
-   <%= link_to "Paid ", '#', class: "btn btn-small btn-info", data: {confirm: "Client has made payment"} %> 
+   <%= link_to "Paid ", paid_path , class: "btn btn-small btn-info", data: {confirm: "Client has made payment"} %> 
    
    <%= link_to "Set Reminder ", '#', class: "btn btn-small btn-success" %>   
   <span class="timestamp">

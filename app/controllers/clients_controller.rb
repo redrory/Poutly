@@ -26,9 +26,9 @@ class ClientsController < ApplicationController
 	def paid
 		# code to change PAID boolean value to yep
 		@client = current_user.clients.find_by_id(params[:id])
-
+		@client.toggle!(:paid)
 		# @client.mark_paid - check admin code
-		flash[:success] = "Job marked as paid  " +  @client.inspect
+		flash[:success] = "Job marked as paid  " +  @client.paid.inspect
 		redirect_to root_url
 		
 	end

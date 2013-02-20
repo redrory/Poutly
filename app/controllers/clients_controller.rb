@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :correct_user, only: :destroy
+	before_filter :correct_user, only: [:destroy, :paid]
 
 	def index
 		

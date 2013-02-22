@@ -4,6 +4,7 @@
     <b>Due Date :</b> <%= feed_item.due_date %> <br>
     <b>Project Name : </b><%= feed_item.project_name %>
     <b>Amount Due : </b> $<%= feed_item.amount %> <br>
+    <b>Days Left : </b> <%= @days_left = (feed_item.due_date - Date.today).to_i %> <br>
   </span>
 
   <%= link_to "Delete", feed_item, method: :delete, 

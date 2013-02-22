@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220021255) do
+ActiveRecord::Schema.define(:version => 20130222022801) do
 
   create_table "clients", :force => true do |t|
     t.string   "project_name"
     t.string   "name"
     t.string   "email"
-    t.string   "due_date"
+    t.date     "due_date",     :limit => 255
     t.integer  "amount"
     t.integer  "user_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "paid",         :default => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.boolean  "paid",                        :default => false
   end
 
   add_index "clients", ["user_id", "created_at"], :name => "index_clients_on_user_id_and_created_at"

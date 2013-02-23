@@ -5,7 +5,8 @@ class ChangeDateColumnToDateTime < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :clients, :due_date, :string
   	add_column :clients, :due_date, :date
+  	remove_column :clients, :due_date, :string
+  	
   end
 end

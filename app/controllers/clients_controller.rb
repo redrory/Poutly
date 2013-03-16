@@ -24,13 +24,21 @@ class ClientsController < ApplicationController
 	end
 
 	def paid
-		# code to change PAID boolean value to yep
 		@client = current_user.clients.find_by_id(params[:id])
 		@client.toggle!(:paid)
-		# @client.mark_paid - check admin code
 		flash[:success] = "Job marked as paid  " +  @client.paid.inspect
 		redirect_to root_url
-		
+	end
+
+	def reminder
+		@client = current_user.clients.find_by_id(params[:id])
+		if @client.update_attribute("reminder","daily")
+			flash[:success] = "Reminder Set"
+			redirect_to root_url
+		else
+			flash[:error] = "Not set"
+			redirect_to root_url
+		end
 	end
 
 

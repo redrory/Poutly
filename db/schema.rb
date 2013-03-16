@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222022801) do
+ActiveRecord::Schema.define(:version => 20130316013543) do
 
   create_table "clients", :force => true do |t|
     t.string   "project_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130222022801) do
     t.datetime "updated_at",                      :null => false
     t.boolean  "paid",         :default => false
     t.date     "due_date"
+    t.string   "reminder"
   end
 
   add_index "clients", ["user_id", "created_at"], :name => "index_clients_on_user_id_and_created_at"

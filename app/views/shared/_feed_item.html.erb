@@ -4,7 +4,9 @@
     <b>Due Date :</b> <%= feed_item.due_date %> <br>
     <b>Project Name : </b><%= feed_item.project_name %>
     <b>Amount Due : </b> $<%= feed_item.amount %> <br>
+    <b>Reminder: </b> <%= feed_item.reminder %> <br>
     <b>Days Left : </b> <%= @days_left = (feed_item.due_date - Date.today).to_i %> <br>
+
   </span>
 
   <%= link_to "Delete", feed_item, method: :delete, 
@@ -14,7 +16,7 @@
    <%= link_to "Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
 
 
-   <%= link_to "Set Reminder ", '#', class: "btn btn-small btn-info" %>   
+   <%= link_to "Set Reminder ", client_reminder_path(feed_item), class: "btn btn-small btn-info" %>   
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>

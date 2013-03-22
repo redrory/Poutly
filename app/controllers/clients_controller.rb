@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 	before_filter :correct_user, only: [:destroy, :paid]
 
 	def index
-		
+		@client = Client.find(params[:id])
 	end
 
 	def create
@@ -22,6 +22,10 @@ class ClientsController < ApplicationController
 		redirect_to root_url
 		
 	end
+
+	def edit
+    	@client = Client.find(params[:id])
+  	end
 
 	def paid
 		@client = current_user.clients.find_by_id(params[:id])

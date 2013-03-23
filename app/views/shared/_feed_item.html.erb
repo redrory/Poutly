@@ -14,8 +14,8 @@
 
   </span>
   <br>
-  <%= link_to "Delete", feed_item, method: :delete, 
-  		data: {confirm: "You sure"}, title: feed_item.project_name  %>
+
+  <%= link_to "Delete", feed_item, method: :delete, data: {confirm: "You sure"}, title: feed_item.project_name  %>
 
 
    <%= link_to "Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
@@ -23,17 +23,14 @@
 
    <%= link_to "Set Reminder ", client_reminder_path(feed_item), class: "btn btn-small btn-info" %>   
 
-   <%= form_for(@client) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.email_field :email, placeholder: "Email of Client" %>
-    
-  </div>
+   <%= form_for(feed_item) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= f.email_field :email, placeholder: "Email of Client" %>
+      </div>
 
-  <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
-<% end %>
-
-
+    <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
+  <% end %>
 
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.

@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 	before_filter :correct_user, only: [:destroy, :paid]
 
 	def index
-		@client = Client.find(params[:id])
+		
 	end
 
 	def create
@@ -15,6 +15,12 @@ class ClientsController < ApplicationController
 			@feed_items = []
 			render 'static_pages/home'
 		end
+	end
+
+	def update
+		@client = Client.find(params[:id])
+		@client.update_attributes(params[:client])
+		redirect_to root_url
 	end
 
 	def destroy

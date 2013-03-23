@@ -7,6 +7,7 @@ class Client < ActiveRecord::Base
   validates :due_date, presence: true
   validates :amount, presence: true, :on =>:create
   validates :name, presence: true
+  validates :email, presence: true, :on => :update
 
   default_scope order: 'clients.created_at DESC'
 end

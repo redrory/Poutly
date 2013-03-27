@@ -20,7 +20,16 @@ class ClientsController < ApplicationController
 	def update
 		@client = Client.find(params[:id])
 		@client.update_attributes(params[:client])
-		redirect_to root_url
+
+		@client = current_user.clients.find_by_id(params[:id])
+		if @client.update_attribute("reminder","daily")
+			flash[:success] = "Reminder Set"
+			redirect_to root_url
+			Reminder.payment_reminder(@client).deliver
+		else
+			flash[:error] = "Not set"
+			redirect_to root_url
+		end
 	end
 
 	def destroy
@@ -41,15 +50,7 @@ class ClientsController < ApplicationController
 	end
 
 	def reminder
-		@client = current_user.clients.find_by_id(params[:id])
-		if @client.update_attribute("reminder","daily")
-			flash[:success] = "Reminder Set"
-			redirect_to root_url
-			Reminder.payment_reminder(@client).deliver
-		else
-			flash[:error] = "Not set"
-			redirect_to root_url
-		end
+		
 	end
 
 

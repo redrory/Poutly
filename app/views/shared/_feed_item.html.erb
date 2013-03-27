@@ -20,31 +20,45 @@
 
   <%= link_to "Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
 
-  <%= link_to "Drop Down","#",:id => "clickme", class: "btn btn-small btn-success" %>
+  <%= link_to "Drop Down","#", data_ruid: feed_item.id %>
+
+  <%= link_to "Set Reminder ", "#", :class => "clickme" %>   
+
 
 <script type="text/javascript">
 
-$('#clickme').click(function() {
-  $('#reminder_form').slideDown('slow', function() {
+  $(document).ready(function (){
+    $('.e_field').hide(); 
+    console.log("Loaded");
+    $('.clickme').click(function() {
+      console.log("Clcicked");
+      var $div = $('.e_field').eq($(this).index('.clickme'));  // get the relevant div
+      console.log("my action__" + $div)
+            $div.show();  // show the relevant div
+    });
+
+
   });
-  console.log('ewew');
-});
 </script>
 
-  <%= link_to "Set Reminder ", client_reminder_path(feed_item), class: "btn btn-small btn-info" %>   
+
+  
 
    <div id ="reminder_form">
-       <%= form_for(feed_item) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <div class="e_field">
-          <%= f.email_field :email, placeholder: "Email of Client" %>
-        </div>
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary"%>
-  <% end %>
+    <%= form_for(feed_item) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <div class="e_field">
+        <%= f.email_field :email, placeholder: "Email of Client" %>
+        <%= f.submit "Confirm ", class: "btn btn-small btn-primary"%>
+      <% end %>
+      </div>
 
    </div>
 
   
+
+
 
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.

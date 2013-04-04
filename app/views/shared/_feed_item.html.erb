@@ -18,11 +18,9 @@
   <%= link_to "Delete", feed_item, method: :delete, data: {confirm: "You sure"}, title: feed_item.project_name  %>
 
 
-  <%= link_to "Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
+  <%= link_to "Mark as Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
 
-  <%= link_to "Drop Down","#", data_ruid: feed_item.id %>
-
-  <%= link_to "Set Reminder ", "#", :class => "clickme" %>   
+  <%= link_to "Email Reminders ", "#", :class => "clickme" %>   
 
 
 <script type="text/javascript">
@@ -49,8 +47,10 @@
       <%= render 'shared/error_messages', object: f.object %>
       
       <div class="e_field">
-        <%= f.email_field :email, placeholder: "Email of Client" %>
-        <%= f.submit "Confirm ", class: "btn btn-small btn-primary"%>
+        <p> Set Daily Reminder
+          <%= f.email_field :email, placeholder: "email address to send reminder" %>
+          <%= f.submit "Confirm ", class: "btn btn-small btn-primary"%>
+        </p>
       <% end %>
       </div>
 

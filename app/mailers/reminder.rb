@@ -4,7 +4,7 @@ class Reminder < ActionMailer::Base
 
   	def payment_reminder(client)
   		@account = client
-  		mail(:to =>"redrory@gmail.com")
+  		mail(:to =>@account.email)
   		
   	end
 end

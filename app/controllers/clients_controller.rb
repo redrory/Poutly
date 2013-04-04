@@ -18,6 +18,7 @@ class ClientsController < ApplicationController
 	end
 
 	def update
+		@user = current_user
 		@client = Client.find(params[:id])
 		@client.update_attributes(params[:client])
 
@@ -25,7 +26,7 @@ class ClientsController < ApplicationController
 		if @client.update_attribute("reminder","daily")
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
-			Reminder.payment_reminder(@client).deliver
+			Reminder.payment_reminder(@client,@user).deliver
 		else
 			flash[:error] = "Not set"
 			redirect_to root_url

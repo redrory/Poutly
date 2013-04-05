@@ -19,17 +19,15 @@ class ClientsController < ApplicationController
 
 	def update
 		@user = current_user
-		@client = Client.find(params[:id])
-		@client.update_attributes(params[:client])
-
 		@client = current_user.clients.find_by_id(params[:id])
-		if @client.update_attribute("reminder","daily")
+
+		if @client.update_attributes(params[:client].merge(reminder: 'daily'))
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
 			#Reminder.payment_reminder(@client,@user).deliver
 		else
 			flash[:error] = "Not set"
-			redirect_to root_url
+			render template: 'static_pages/home'
 		end
 	end
 

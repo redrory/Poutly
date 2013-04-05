@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :project_name, :name, :due_date, :amount, :email
+  attr_accessible :project_name, :name, :due_date, :amount, :email, :reminder
 	belongs_to :user
 
   validates :project_name, presence: true, length: { maximum: 140}
@@ -7,7 +7,14 @@ class Client < ActiveRecord::Base
   validates :due_date, presence: true
   validates :amount, presence: true, :on =>:create
   validates :name, presence: true
-  validates :email, presence: true, :on => :update
+
+  validate :presence_of_email
 
   default_scope order: 'clients.created_at DESC'
+
+  def presence_of_email
+  	unless new_record?
+  	  errors.add :email, "can't be blank." if email.blank?
+  	end
+  end
 end

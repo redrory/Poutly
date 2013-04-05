@@ -22,8 +22,8 @@ class UsersController < ApplicationController
 
 		if @user.save
       sign_in @user
-			flash[:success] = "Welcome to Poutly.com"
-			redirect_to @user
+			flash[:success] = "Account created, started adding your Cient below"
+			redirect_to root_url
 		else
 			render 'new'
 		end  	

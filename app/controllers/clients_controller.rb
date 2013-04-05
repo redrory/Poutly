@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
 		if @client.update_attribute("reminder","daily")
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
-			Reminder.payment_reminder(@client,@user).deliver
+			#Reminder.payment_reminder(@client,@user).deliver
 		else
 			flash[:error] = "Not set"
 			redirect_to root_url

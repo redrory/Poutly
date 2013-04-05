@@ -26,8 +26,9 @@ class ClientsController < ApplicationController
 			redirect_to root_url
 			#Reminder.payment_reminder(@client,@user).deliver
 		else
-			flash[:error] = "Not set"
-			render template: 'static_pages/home'
+			flash[:error] = "Email cannot be blank"
+			redirect_to root_url
+			#render 'static_pages/home'
 		end
 	end
 

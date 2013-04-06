@@ -1,36 +1,29 @@
-<li id="<%= feed_item.id %>">
-  <span class="user">
-  
+<li id="<%#= feed_item.id %>">
 
-    <table class = "table table-striped table-hover">
       <tr>  
         <th>Company</th>
         <th>Project Name</th>
         <th>Due Date</th>
         <th>Amount Due</th>
         <th>Days Left</th>
-
       </tr>
-      <td><%= feed_item.name %></td>
-      <td><%= feed_item.project_name %></td>
-      <td><%= feed_item.due_date.to_formatted_s(:long)  %></td>
-      <td><%= feed_item.amount %></td>
-      <td><%= @days_left = (feed_item.due_date - Date.today).to_i %></td>
+  
+  <% @feed_items.each do |client|%>
 
-    </table>
-  </span>
-
-  <br>
-
-  <%= link_to "Delete", feed_item, method: :delete, data: {confirm: "You sure"}, title: feed_item.project_name  %>
-
-  <%= link_to "Edit ", edit_client_path(feed_item) %>
-
-  <%= link_to "Mark as Paid", client_paid_path(feed_item), class: "btn btn-small btn-success" %>
-
-  <%= link_to "Email Reminders ", "#", :class => "clickme" %>   
+  
+      <tr>
+      <td><%= client.name %></td>
+      <td><%= client.project_name %></td>
+      <td><%= client.due_date.to_formatted_s(:long)  %></td>
+      <td><%= client.amount %></td>
+      <td><%= @days_left = (client.due_date - Date.today).to_i %></td>
+      </tr>
 
 
+
+
+  <% end %>
+  </table>
 <script type="text/javascript">
 
   $(document).ready(function (){
@@ -48,7 +41,7 @@
 </script>
 
    <div id ="reminder_form">
-    <%= form_for(feed_item) do |f| %>
+    <%= form_for(@client) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       
       <div class="e_field">
@@ -65,7 +58,5 @@
 
 
 
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-  </span>
+
 </li>

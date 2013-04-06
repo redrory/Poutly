@@ -1,7 +1,8 @@
 <% if @feed_items.try(:any?) %>
 
 	<ol class = "clients">
-		<%= render partial: 'shared/feed_item', collection: @feed_items %>
+		<table class = "table table-striped table-hover">
+		<%= render partial: 'shared/feed_item' %>
 	</ol>
 
 	<%#= will_paginate @feed_items%>

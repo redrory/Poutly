@@ -9,8 +9,13 @@
   </tr>
 
   <% @feed_items.each do |client|%>
-
-  <tr>
+  <% @days_left = (client.due_date - Date.today).to_i %> %>
+  
+  <% unless @days_left > 0 %> 
+    <tr class = "error">
+  <% else %>
+    <tr>
+  <% end %>
     <td><%= client.name %></td>
     <td><%= client.project_name %></td>
     <td><%= client.due_date.to_formatted_s(:long)  %></td>

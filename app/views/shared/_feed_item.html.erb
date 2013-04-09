@@ -31,8 +31,24 @@
     </td>
   </tr>
 
-  <% end %>
+
+   <div id ="reminder_form">
+    <%= form_for(client) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <div class="e_field">
+        <p> Set Reminder for <%= client.name %>
+          <%= f.email_field :email, placeholder: "email address to send reminder" %>
+          <%= f.submit "Set ", class: "btn btn-small btn-primary"%>
+        </p>
+      <% end %>
+      </div>
+    </div>
+</li>
+
+ <% end %>
 </table>
+
 
 
 <script type="text/javascript">
@@ -45,16 +61,3 @@
   });
 
 </script>
-   <div id ="reminder_form">
-    <%= form_for(@client) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      
-      <div class="e_field">
-        <p> Set Daily Reminder
-          <%= f.email_field :email, placeholder: "email address to send reminder" %>
-          <%= f.submit "Confirm ", class: "btn btn-small btn-primary"%>
-        </p>
-      <% end %>
-      </div>
-    </div>
-</li>

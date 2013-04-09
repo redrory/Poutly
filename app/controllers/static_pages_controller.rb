@@ -9,7 +9,8 @@ class StaticPagesController < ApplicationController
   end
 
   def show
-    @client = current_user.clients.build
+    #@client = current_user.clients.build
+     @client = Client.find(params[:id])
     @feed_items = current_user.feed.paginate(page: params[:page])
   end
 

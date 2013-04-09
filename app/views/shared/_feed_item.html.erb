@@ -4,15 +4,16 @@
     <th>Company</th>
     <th>Project Name</th>
     <th>Due Date</th>
-    <th>Amount Due</th>
+    <th>Amount</th>
     <th>Days Left</th>
+    <th>Status</th>
     <th>Action</th>
   </tr>
 
   <% @feed_items.each do |client|%>
   <% @days_left = (client.due_date - Date.today).to_i %>
   
-  <% unless @days_left > 0 %> 
+  <% unless @days_left > 3 %> 
     <tr class = "error">
   <% else %>
     <tr>
@@ -22,12 +23,19 @@
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
     <td><%= client.amount %></td>
     <td><%= @days_left %> </td>
+    <% unless client.reminder.nil? %>
+    <td> <i class="icon-bullhorn"></i></td>
+
+    <% else %>
+
+    <td></td>
+    <% end %>
+    
     <td>
       <%= link_to "", edit_client_path(client), :class => "icon-edit" %>
       <%= link_to "", client, method: :delete, data: {confirm: "You sure"}, title: client.project_name, :class => "icon-remove" %>
       <%= link_to "", client_paid_path(client),:class => "icon-ok"%>
       <%= link_to "", "#", :class => "clickme icon-envelope" %>
-
     </td>
   </tr>
 

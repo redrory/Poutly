@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
 			#Reminder.payment_reminder(@client,@user).deliver
+
 		else
 			flash[:error] = "Email cannot be blank"
 			redirect_to root_url
@@ -37,6 +38,8 @@ class ClientsController < ApplicationController
 		redirect_to root_url
 		
 	end
+
+	
 
 	def edit
     	@client = Client.find(params[:id])

@@ -17,4 +17,9 @@ class Client < ActiveRecord::Base
   	  errors.add :email, "can't be blank." if email.blank?
   	end
   end
+
+  def self.cron_test
+    Reminder.test_mail.deliver
+  end
+
 end

@@ -8,4 +8,9 @@ class Reminder < ActionMailer::Base
   		mail(:to =>@account.email)
   		
   	end
+
+  	def test_mail()
+  		mail(:to =>"redrory@gmail.com")
+  		
+  	end
 end

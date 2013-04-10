@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
 		@user = current_user
 		@client = current_user.clients.find_by_id(params[:id])
 
-		if @client.update_attributes(params[:client].merge(reminder: 'daily'))
+		if @client.update_attributes(params[:client])#.merge(reminder: 'daily'))
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
 			#Reminder.payment_reminder(@client,@user).deliver

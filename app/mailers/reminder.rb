@@ -9,6 +9,12 @@ class Reminder < ActionMailer::Base
   		
   	end
 
+    def payment_test(client,email)
+      @account = client
+      mail(:to =>email)
+      
+    end
+
   	def test_mail()
   		mail(:to =>"redrory@gmail.com")
   		

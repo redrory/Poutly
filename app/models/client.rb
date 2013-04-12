@@ -22,4 +22,21 @@ class Client < ActiveRecord::Base
     Reminder.test_mail.deliver
   end
 
+  def self.email_update
+    @user = User.all
+    @client = Client.all
+    @client.each do |c|
+      unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
+        #puts c.email
+        Reminder.payment_test(@client, c.email).deliver
+      end
+    end
+    end
+
+    #@user = current_user
+    #@client = current_user.clients
+    #Reminder.payment_test(@client).deliver
+    #Reminder.test_mail.deliver
+  end
+
 end

@@ -17,8 +17,8 @@
    runner "Client.cron_test", :environment => "development"
  end
 
- every 1.days, :at => "8:20pm" do
-   runner "Client.email_update", :environment => "development"
+ every 1.days, :at => "11:00pm" do
+   runner "Client.payment_test", :environment => "development"
  end
 
 # Learn more: http://github.com/javan/whenever

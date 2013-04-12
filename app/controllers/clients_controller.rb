@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
 		if @client.update_attributes(params[:client])#.merge(reminder: 'daily'))
 			flash[:success] = "Reminder Set"
 			redirect_to root_url
-			Reminder.payment_reminder(@client,@user).deliver
+			#Reminder.payment_reminder(@client,@user).deliver
 
 		else
 			flash[:error] = "Email cannot be blank"

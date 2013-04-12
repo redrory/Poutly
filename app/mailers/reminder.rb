@@ -9,8 +9,12 @@ class Reminder < ActionMailer::Base
   		
   	end
 
-    def payment_test(client,email)
-      @account = client
+    def payment_test(email,project_name,name,amount,due_date)
+      #@account = client
+      @name = name
+      @project_name = project_name
+      @amount = amount
+      @due_date = due_date
       mail(:to =>email)
       
     end

@@ -27,16 +27,23 @@ class Client < ActiveRecord::Base
     @client = Client.all
     @client.each do |c|
       unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
-        #puts c.email
-        Reminder.payment_test(c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+        puts "Daily fixed"
+        #Reminder.payment_test(c.email,c.project_name,c.name,c.amount,c.due_date).deliver
       end
     end
     end
+  end
 
-    #@user = current_user
-    #@client = current_user.clients
-    #Reminder.payment_test(@client).deliver
-    #Reminder.test_mail.deliver
+  def self.weekly_email
+    @user = User.all
+    @client = Client.all
+    @client.each do |c|
+      unless c.email.nil? || if c.reminder == "Weekly" && c.paid == false 
+        puts "Weekly fixed"
+        Reminder.weekly_email(c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+      end
+    end
+    end
   end
 
 end

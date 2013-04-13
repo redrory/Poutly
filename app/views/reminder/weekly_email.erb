@@ -1,0 +1,32 @@
+
+<p>
+Good day team at <%= @name %>,
+</p>
+
+
+<% if (@due_date - Date.today).to_i > 0 %>
+This is a payment reminder sent from   informing that payment of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b> is due in <b> <%= (@due_date - Date.today).to_i %></b> days. 
+
+<% else %> 
+
+<p>
+This is a payment reminder sent from that your balance of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b>was overdue as of <b><%= @due_date %></b>.
+</p>
+
+<p>
+Please arrange payment of this account today or, if you cannot make full payment at this time, please contact us to make a payment arrangement that is mutually acceptable.
+</p>
+
+<p>
+If payment has recently been made, please accept our thanks and ignore this reminder.
+</p>
+
+
+<% end %>
+
+ Regards, <p>
+
+
+
+
+

@@ -21,4 +21,8 @@
    runner "Client.payment_test", :environment => "development"
  end
 
+ every 7.days, :at => "11:00pm" do
+   runner "Client.weekly_email", :environment => "development"
+ end
+
 # Learn more: http://github.com/javan/whenever

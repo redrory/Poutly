@@ -19,6 +19,16 @@ class Reminder < ActionMailer::Base
       
     end
 
+     def weekly_email(email,project_name,name,amount,due_date)
+      #@account = client
+      @name = name
+      @project_name = project_name
+      @amount = amount
+      @due_date = due_date
+      mail(:to =>email)
+      
+    end
+
   	def test_mail()
   		mail(:to =>"redrory@gmail.com")
   		

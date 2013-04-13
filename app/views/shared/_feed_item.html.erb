@@ -9,9 +9,10 @@
     <th>Status</th>
     <th>Action</th>
   </tr>
-
+  <% @total = 0%>
   <% @feed_items.each do |client|%>
   <% @days_left = (client.due_date - Date.today).to_i %>
+  <% @total = @total + client.amount %>
   
   <% unless @days_left > 3 %> 
     <tr class = "error">
@@ -21,7 +22,7 @@
     <td><%= client.name %></td>
     <td><%= client.project_name %></td>
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
-    <td><%= client.amount %></td>
+    <td><%= number_to_currency(client.amount) %></td>
     <td><%= @days_left %> </td>
     <% unless client.reminder.nil? %>
     <td> <i class="icon-bullhorn"></i></td>
@@ -38,7 +39,6 @@
       <%= link_to "", "#", :class => "clickme icon-envelope" %>
     </td>
   </tr>
-
 
    <div id ="reminder_form">
     <%= form_for(client) do |f| %>
@@ -58,7 +58,7 @@
  <% end %>
 </table>
 
-
+<p class = "lead"> Total = <%= number_to_currency(@total)%></p>
 
 <script type="text/javascript">
   $(document).ready(function (){

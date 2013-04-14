@@ -26,8 +26,8 @@ class Client < ActiveRecord::Base
     @user = User.all
     @client = Client.all
     @client.each do |c|
-      unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
-        puts "Daily fixed"
+      unless c.email.nil? || if c.reminder == "--- \n- Daily\n" || c.reminder == "--- \n- Daily\n- Weekly\n" && c.paid == false 
+        puts "Daily fixed" + c.email
         #Reminder.payment_test(c.email,c.project_name,c.name,c.amount,c.due_date).deliver
       end
     end
@@ -38,8 +38,8 @@ class Client < ActiveRecord::Base
     @user = User.all
     @client = Client.all
     @client.each do |c|
-      unless c.email.nil? || if c.reminder == "Weekly" && c.paid == false 
-        puts "Weekly fixed"
+      unless c.email.nil? || if c.reminder == "--- \n- Weekly\n" || c.reminder == "--- \n- Daily\n- Weekly\n" && c.paid == false 
+        puts "Weekly fixed" + c.email
         Reminder.weekly_email(c.email,c.project_name,c.name,c.amount,c.due_date).deliver
       end
     end

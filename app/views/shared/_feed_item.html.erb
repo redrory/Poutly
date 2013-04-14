@@ -24,7 +24,7 @@
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
     <td><%= number_to_currency(client.amount) %></td>
     <td><%= @days_left %> </td>
-    <% unless client.reminder == "0" %>
+    <% unless client.reminder == "0" || client.reminder == nil  %>
     <td> <i class="icon-bullhorn"></i></td>
 
     <% else %>
@@ -47,8 +47,12 @@
       <div class="e_field">
         <p> Set Reminder for <%= client.name %>
           <%= f.email_field :email, placeholder: "email address to send reminder" %>
-          Daily <%=  check_box("client", "reminder", {}, "Daily")%>
-          Weekly <%=  check_box("client", "reminder", {}, "Weekly")%>
+          <!-- Daily <%#=  check_box("client", "reminder", {}, "Daily")%> -->
+
+          <% @Rem.each do |r| %>
+          <%= check_box_tag "client[reminder][]", r.name  %>
+          <%= r.name %>
+          <% end %>
           <%= f.submit "Set ", class: "btn btn-small btn-primary"%>
         </p>
       <% end %>

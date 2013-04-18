@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :project_name, :name, :due_date, :amount, :email, :reminder
+  attr_accessible :project_name, :name, :due_date, :amount, :email, :reminder, :last_email
 	belongs_to :user
 
   validates :project_name, presence: true, length: { maximum: 140}

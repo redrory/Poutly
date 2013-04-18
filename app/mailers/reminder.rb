@@ -19,16 +19,16 @@ class Reminder < ActionMailer::Base
       
     end
 
-     def weekly_email(email,project_name,name,amount,due_date)
-      #@account = client
-      #@client = client
+     def weekly_email(id,email,project_name,name,amount,due_date)
+      @id = id
       @name = name
       @project_name = project_name
       @amount = amount
       @due_date = due_date
+      @client = Client.find(id)
       mail(:to =>email)
-      #puts "right before my method"
-      #@client.update_attributes(project_name: "EMAIL just sent")
+      puts "right before my method"
+      @client.update_attributes(project_name: "EMAIL just sent")
       
     end
 

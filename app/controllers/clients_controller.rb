@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+	around_filter MailObserver.instance
 	before_filter :signed_in_user
 	before_filter :correct_user, only: [:destroy, :paid]
 
@@ -39,8 +40,8 @@ class ClientsController < ApplicationController
 		
 	end
 
-	def con_mail
-		Reminder.test_mail.deliver
+	def update_email
+		puts "Inside Update Email sent function"
 	end
 
 	

@@ -1,5 +1,4 @@
 class ClientsController < ApplicationController
-	around_filter MailObserver.instance
 	before_filter :signed_in_user
 	before_filter :correct_user, only: [:destroy, :paid]
 

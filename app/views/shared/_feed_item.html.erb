@@ -1,4 +1,4 @@
-<li id="<%#= client.id %>">
+
 <table class = "table table-striped table-hover">
   <tr>  
     <th>Company</th>
@@ -10,7 +10,7 @@
     <th>Action</th>
   </tr>
   <% @total = 0%>
-  <% @feed_items.each do |client|%>
+  <% feed.each do |client|%>
   <% @days_left = (client.due_date - Date.today).to_i %>
   <% @total = @total + client.amount %>
   
@@ -58,7 +58,7 @@
       <% end %>
       </div>
     </div>
-</li>
+
 
  <% end %>
 </table>

@@ -1,14 +1,14 @@
 <li>
 	<span class="project_name">
-		<%= client.project_name%>
+		<%= client.name%>'s <%= client.project_name%>
 	</span>
 
 	<span class="name">
-		<%= client.name%>
+		
 	</span>
 
 	<span class="amount">
-		<%= client.amount%>
+		<%= number_to_currency(client.amount)%>
 	</span>
 
 	<span	class = "timestamp">

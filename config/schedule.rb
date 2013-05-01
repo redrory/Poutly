@@ -18,7 +18,7 @@
  end
 
  every 1.days, :at => "11:00pm" do
-   runner "Client.payment_test", :environment => "development"
+   runner "Client.daily_email", :environment => "development"
  end
 
  every 7.days, :at => "11:00pm" do

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
 		if @user.save
       sign_in @user
-			flash[:success] = "Account created, started adding your Cient below"
+			flash[:success] = "Account created, started adding your Clients below"
 			redirect_to root_url
 		else
 			render 'new'

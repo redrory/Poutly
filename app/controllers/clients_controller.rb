@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
 	end
 
 	def create
-		@client = current_user.clients.build(params[:client]#.merge(last_email: 0))
+		@client = current_user.clients.build(params[:client])#.merge(last_email: 0))
 		if @client.save
 			flash[:success] = "Client created"
 			redirect_to root_url

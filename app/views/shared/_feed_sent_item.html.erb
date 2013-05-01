@@ -1,0 +1,81 @@
+
+<table class = "table table-striped table-hover">
+  <tr>  
+    <th>Company</th>
+    <th>Project Name</th>
+    <th>Due Date</th>
+    <th>Reminder Sent</th>
+    <th>Amount</th>
+    <th>Days Left</th>
+    
+    <th>Action</th>
+  </tr>
+  <% @total = 0%>
+  <% feed.each do |client|%>
+  <% @days_left = (client.due_date - Date.today).to_i %>
+  <% @total = @total + client.amount %>
+  
+  <% unless @days_left > 3 %> 
+    <tr class = "error">
+  <% else %>
+    <tr>
+  <% end %>
+    <td><%= client.name %></td>
+    <td><%= client.project_name %></td>
+    <td><%= client.due_date.to_formatted_s(:long)  %></td>
+    <td> <%= client.last_email.to_formatted_s(:long) %></td>
+    <td><%= number_to_currency(client.amount) %></td>
+    <td><%= @days_left %> </td>
+    <% unless client.reminder == "0" || client.reminder == nil  %>
+    
+
+    <% else %>
+
+    <td></td>
+    <% end %>
+    
+    <td>
+      <%= link_to "", edit_client_path(client), :class => "icon-edit" %>
+      <%= link_to "", client, method: :delete, data: {confirm: "You sure"}, title: client.project_name, :class => "icon-remove" %>
+      <%= link_to "", client_paid_path(client),:class => "icon-ok"%>
+      <%= link_to "", "#", :class => "clickme icon-envelope" %>
+    </td>
+  </tr>
+
+   <div id ="reminder_form">
+    <%= form_for(client) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <div class="e_field">
+        <p> Set Reminder for <%= client.name %>
+          <%= f.email_field :email, placeholder: "email address to send reminder" %>
+          <!-- Daily <%#=  check_box("client", "reminder", {}, "Daily")%> -->
+
+          <% @Rem.each do |r| %>
+          <%= check_box_tag "client[reminder][]", r.name  %>
+          <%= r.name %>
+          <% end %>
+          <%= f.submit "Set ", class: "btn btn-small btn-primary"%>
+        </p>
+      <% end %>
+      </div>
+    </div>
+
+
+ <% end %>
+</table>
+
+<p class = "lead text-right"> Total = <%= number_to_currency(@total)%></p>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function (){
+    $('.e_field').hide(); 
+    $('.clickme').click(function() {
+      var $div = $('.e_field').eq($(this).index('.clickme'));  // get relevant div
+      $div.show();  // show the relevant div
+    });
+  });
+
+</script>

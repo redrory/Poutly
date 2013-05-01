@@ -28,7 +28,7 @@ class Reminder < ActionMailer::Base
       @client = Client.find(id)
       mail(:to =>email)
       puts "right before my method"
-      @client.update_attributes(last_email: Time.now)
+      @client.update_attributes(last_email: Time.now, email_sent: true)
       
     end
 

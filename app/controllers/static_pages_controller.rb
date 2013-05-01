@@ -5,10 +5,9 @@ class StaticPagesController < ApplicationController
        #@feed_items = current_user.feed.paginate(page: params[:page])
        @feed_items = current_user.feed.find_all_by_paid(false)
        @paid_items = current_user.feed.find_all_by_paid(true)
-       @one = current_user.feed.find_all_by_paid(true)
-       @Rem = Rem.all
-       @item = Client
        @emails = current_user.feed.where(:last_email => nil)
+
+       @Rem = Rem.all
     end
    
   end

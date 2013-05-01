@@ -52,7 +52,7 @@ class ClientsController < ApplicationController
 	def paid
 		@client = current_user.clients.find_by_id(params[:id])
 		@client.toggle!(:paid)
-		flash[:success] = "Job marked as paid  " +  @client.paid.inspect
+		flash[:success] = "Job marked as paid"
 		redirect_to root_url
 	end
 

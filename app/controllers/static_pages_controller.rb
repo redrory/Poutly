@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
        @paid_items = current_user.feed.find_all_by_paid(true)
        @emails = current_user.feed.where(:last_email => nil)
        @sent_emails = current_user.feed.where(:email_sent => true)
-
+       @all_jobs = current_user.feed
        @Rem = Rem.all
     end
    

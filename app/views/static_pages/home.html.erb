@@ -26,7 +26,7 @@
 
     </div>
     <div class="tab-pane" id="tab2">
-    	<%= render :partial => "shared/feed_item", :locals => { :feed => @paid_items } %>
+    	<%= render :partial => "shared/feed_paid_item", :locals => { :feed => @paid_items } %>
     </div>
     <div class = "tab-pane" id= "tab3">
     	<%= render :partial => "shared/feed_sent_item", :locals => { :feed => @sent_emails } %>
@@ -60,10 +60,27 @@
 
 	<h1>Payment Reminders</h1>
 	<p>
-		Helping Small business collect their funds!
+		Helping small businesses collect their funds!
 	</p>
 
 	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary btn-custom"%>
+</div>
+
+<div class= "row">
+	<div class = "span4 offset2">
+		<h2>Reduces clients payment time </h2>
+		<p>Gentle reminders to your clients to pay on time</p>
+	</div>
+
+	<div class = "span4 offset2 ">
+		<h2>Saves Time</h2>
+		<p>Automatically notifies clients who haven't paid</p>
+	</div>
+
+
+
+
+
 </div>
 
 

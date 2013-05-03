@@ -1,19 +1,12 @@
-<% if feed.empty? %>
-No client added yet
-
-<% else %>
-
-
-
 
 <table class = "table table-striped table-hover">
   <tr>  
     <th>Company</th>
     <th>Project Name</th>
     <th>Due Date</th>
+    <th>Date Paid</th>
     <th>Amount</th>
-    <th>Days Left</th>
-    <th>Status</th>
+
     <th>Action</th>
   </tr>
   <% @total = 0%>
@@ -29,21 +22,21 @@ No client added yet
     <td><%= client.name %></td>
     <td><%= client.project_name %></td>
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
+    <td> <%= client.due_date.to_formatted_s(:long) %></td>
     <td><%= number_to_currency(client.amount) %></td>
-    <td><%= @days_left %> </td>
+
     <% unless client.reminder == "0" || client.reminder == nil  %>
-    <td> <i class="icon-bullhorn"></i></td>
+    
 
     <% else %>
 
-    <td></td>
+
     <% end %>
     
     <td>
       <%= link_to "", edit_client_path(client), :class => "icon-edit" %>
-      <%= link_to "", client, method: :delete, data: {confirm: "Are you sure you want to delete this client?"}, title: client.project_name, :class => "icon-remove" %>
-      <%= link_to "", client_paid_path(client),:class => "icon-ok"%>
-      <%= link_to "", "#", :class => "clickme icon-envelope" %>
+      <%= link_to "", client, method: :delete, data: {confirm: "You sure"}, title: client.project_name, :class => "icon-remove" %>
+
     </td>
   </tr>
 
@@ -71,7 +64,7 @@ No client added yet
 </table>
 
 <p class = "lead text-right"> Total = <%= number_to_currency(@total)%></p>
-<% end %>
+
 
 
 <script type="text/javascript">

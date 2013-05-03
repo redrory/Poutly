@@ -2,21 +2,31 @@
 
 @import "bootstrap";
 
-.navbar-inner {
-  background-color: #000; /* background color will be black for all browsers */
-  background-image: none;
-  background-repeat: no-repeat;
-  filter: none;
+.navbar {
+  .navbar-inner {
+    background-color: #4D075E;
+    background-image: none;
+  }
 }
+
+.label-custom{
+  background-color: #EE8E7B;
+
+}
+
+
+
+
 
 /* new */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Corben', Georgia, Times, serif;
+    font-family: 'Dancing Script', Georgia, Times, serif;
 }
 p, div {
-    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
 }
+
 
 body { 
     background: url(cream_dust.png) repeat 0 0;
@@ -33,6 +43,7 @@ h1 {
 .nav-pills > .active > a, .nav-pills > .active > a:hover {
     background-color: #FF9473;
 }
+
 
 .btn-custom {
   background-color: hsl(86, 79%, 44%) !important;
@@ -51,6 +62,22 @@ h1 {
   -webkit-font-smoothing: antialiased;
 }
 
+.label-custom {
+  background-color: hsl(10, 82%, 55%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f18c78", endColorstr="#ea4d2e");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f18c78), to(#ea4d2e));
+  background-image: -moz-linear-gradient(top, #f18c78, #ea4d2e);
+  background-image: -ms-linear-gradient(top, #f18c78, #ea4d2e);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f18c78), color-stop(100%, #ea4d2e));
+  background-image: -webkit-linear-gradient(top, #f18c78, #ea4d2e);
+  background-image: -o-linear-gradient(top, #f18c78, #ea4d2e);
+  background-image: linear-gradient(#f18c78, #ea4d2e);
+  border-color: #ea4d2e #ea4d2e hsl(10, 82%, 51%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.26);
+  -webkit-font-smoothing: antialiased;
+}
 
 /* universal */
 
@@ -113,11 +140,12 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  /** text-transform: uppercase; */
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
+
   line-height: 1;
+  font-family: 'Dancing Script';
 }
 
 #logo:hover {

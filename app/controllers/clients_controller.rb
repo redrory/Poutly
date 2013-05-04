@@ -51,7 +51,8 @@ class ClientsController < ApplicationController
 
 	def paid
 		@client = current_user.clients.find_by_id(params[:id])
-		@client.toggle!(:paid)
+		#@client.toggle!(:paid)
+		@client.update_attributes(paid: true, date_paid: Time.now)
 		flash[:success] = "Job marked as paid"
 		redirect_to root_url
 	end

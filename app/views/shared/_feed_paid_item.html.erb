@@ -22,7 +22,7 @@
     <td><%= client.name %></td>
     <td><%= client.project_name %></td>
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
-    <td> <%= client.due_date.to_formatted_s(:long) %></td>
+    <td><%= client.date_paid.to_formatted_s(:long) %></td>
     <td><%= number_to_currency(client.amount) %></td>
 
     <% unless client.reminder == "0" || client.reminder == nil  %>

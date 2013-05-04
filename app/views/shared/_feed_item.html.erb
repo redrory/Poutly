@@ -31,7 +31,7 @@ No client added yet
     <td><%= client.due_date.to_formatted_s(:long)  %></td>
     <td><%= number_to_currency(client.amount) %></td>
     <td><%= @days_left %> </td>
-    <% unless client.reminder == "0" || client.reminder == nil  %>
+    <% unless client.reminder == "None" || client.reminder == nil  %>
     <td> <i class="icon-bullhorn"></i></td>
 
     <% else %>
@@ -57,7 +57,9 @@ No client added yet
           <!-- Daily <%#=  check_box("client", "reminder", {}, "Daily")%> -->
 
           <% @Rem.each do |r| %>
-          <%= check_box_tag "client[reminder][]", r.name  %>
+          <%= f.radio_button :reminder, r.name%>
+          <%#= f.check_box("reminder", {}, r.name) %>
+          <%#= check_box_tag "client[reminder][]", r.name  %>
           <%= r.name %>
           <% end %>
           <%= f.submit "Set ", class: "btn btn-small btn-primary"%>

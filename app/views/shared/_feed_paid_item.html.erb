@@ -50,6 +50,8 @@
           <!-- Daily <%#=  check_box("client", "reminder", {}, "Daily")%> -->
 
           <% @Rem.each do |r| %>
+
+          
           <%= check_box_tag "client[reminder][]", r.name  %>
           <%= r.name %>
           <% end %>

@@ -27,7 +27,7 @@ class Reminder < ActionMailer::Base
       @due_date = due_date
       @client = Client.find(id)
       mail(:to =>email)
-      puts "right before my method"
+      puts "Inside Daily email sent method"
       @client.update_attributes(last_email: Time.now, email_sent: true)
       
     end
@@ -40,7 +40,7 @@ class Reminder < ActionMailer::Base
       @due_date = due_date
       @client = Client.find(id)
       mail(:to =>email)
-      puts "right before my method"
+      puts "Inside weekly email sent method"
       @client.update_attributes(last_email: Time.now, email_sent: true)
       
     end

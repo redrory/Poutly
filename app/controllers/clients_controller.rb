@@ -12,8 +12,11 @@ class ClientsController < ApplicationController
 			flash[:success] = "Client created"
 			redirect_to root_url
 		else
-			@feed_items = []
-			render 'static_pages/home'
+			#@feed_items = []
+			#@feed = []
+			#render 'static_pages/home'
+			flash[:error] = "Enter all clients details"
+			redirect_to root_url
 		end
 	end
 

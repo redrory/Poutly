@@ -23,7 +23,7 @@ Poutly::Application.configure do
   #
   #
   ##REMEMBER TO ADD CONFIG FOR URL IN PRODUCTION
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "www.poutly.com" }
   #
   #
   #

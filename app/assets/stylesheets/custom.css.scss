@@ -14,6 +14,11 @@
 
 }
 
+.about-container{
+  background-color: #FFFFFF;
+
+}
+
 .content-user{padding:20px 40px 0px 40px}
 .counter-wrapper{text-align:center}
 .counter-no{background-image:url(counter-bg.png);background-repeat:no-repeat;width:175px;height:30px;
@@ -48,6 +53,9 @@ h1 {
     background-color: #FF9473;
 }
 
+.link-text{
+  font-size: 15px;
+}
 
 .btn-custom {
   background-color: hsl(86, 79%, 44%) !important;

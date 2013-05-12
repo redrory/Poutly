@@ -3,7 +3,7 @@ module ApplicationHelper
 	#returns the full title on a per-page basis
 
 	def full_title(page_title)
-		base_title = "Poutly.com"
+		base_title = "Payment Reminders | Poutly.com"
 
 		if page_title.empty?
 			base_title

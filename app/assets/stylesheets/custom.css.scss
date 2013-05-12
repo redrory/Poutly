@@ -32,6 +32,22 @@
     color: #1D1F57;
 }
 
+/* font */
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dancing Script'), local('DancingScript'), url(http://themes.googleusercontent.com/static/fonts/dancingscript/v3/DK0eTGXiZjN6yA8zAEyM2bDH3ri20rYH10B2w3wbVeU.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans'), local('JosefinSans'), url(http://themes.googleusercontent.com/static/fonts/josefinsans/v3/xgzbb53t8j-Mo-vYa23n5qRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
 /* new */
 
 h1, h2, h3, h4, h5, h6 {

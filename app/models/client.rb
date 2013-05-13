@@ -29,6 +29,7 @@ class Client < ActiveRecord::Base
       unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
         puts "Daily fixed | " + c.email
         Reminder.daily_email(c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+        Reminder.test_mail.deliver
       end
     end
     end

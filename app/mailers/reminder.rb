@@ -54,7 +54,8 @@ class Reminder < ActionMailer::Base
     end
 
   	def test_mail()
-  		mail(:to =>"redrory@gmail.com")
+  		mail(:to =>"rory@rorywalker.com")
+      puts "After test_mail"
   		
   	end
 end

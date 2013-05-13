@@ -45,6 +45,14 @@ class Reminder < ActionMailer::Base
       
     end
 
+    def new_signup()#email,name)
+      #@name = name
+      #@client = Client.find(id)
+      mail(:to =>"rwalker@chukkacaribbean.com")
+      puts "Inside New User"
+      
+    end
+
   	def test_mail()
   		mail(:to =>"redrory@gmail.com")
   		

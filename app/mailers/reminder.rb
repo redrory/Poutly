@@ -1,5 +1,5 @@
 class Reminder < ActionMailer::Base
-  default from: "from@example.com",
+  default from: "notice@poutly.com",
   	:return_path => "reminder@poutly.com"
 
   	def payment_reminder(client,user)

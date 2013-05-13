@@ -45,7 +45,7 @@ class Reminder < ActionMailer::Base
       
     end
 
-    def new_signup()#email,name)
+    def new_signup()
       #@name = name
       #@client = Client.find(id)
       mail(:to =>"rwalker@chukkacaribbean.com")

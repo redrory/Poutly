@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       sign_in @user
 			flash[:success] = "Account created, started adding your Clients below"
 			redirect_to root_url
-      Reminder.new_signup.deliver
+      Reminder.test_mail.deliver
 		else
 			render 'new'
 		end  	

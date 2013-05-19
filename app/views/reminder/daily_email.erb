@@ -1,16 +1,16 @@
 
 <p>
-Good day team at <%= @name %>,
+Good day <%= @name %>,
 </p>
 
 
 <% if (@due_date - Date.today).to_i > 0 %>
-This is a payment reminder sent from user_name-|<%= @user_name %>|user--   informing that payment of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b> is due in <b> <%= (@due_date - Date.today).to_i %></b> days. 
+This is a payment reminder sent from <b><%= @user_name %></b> informing that payment of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b> is due in <b> <%= (@due_date - Date.today).to_i %></b> days. 
 
 <% else %> 
 
 <p>
-This is a payment reminder sent from user_name-|<%= @user_name %>|user--  that your balance of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b>was overdue as of <b><%= @due_date %></b>.
+This is a payment reminder sent from <b><%= @user_name %></b> informing that your balance of <b>$<%= @amount %> </b>for <b><%= @project_name %> </b>was overdue as of <b><%= @due_date.to_formatted_s(:long) %></b>.
 </p>
 
 <p>

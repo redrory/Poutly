@@ -28,8 +28,9 @@ class Client < ActiveRecord::Base
     @client.each do |c|
       unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
         puts "Daily fixed | " + c.email
-        Reminder.daily_email(c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
         Reminder.test_mail.deliver
+        Reminder.daily_email(c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+        
       end
     end
     end

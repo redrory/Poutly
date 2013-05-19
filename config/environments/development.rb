@@ -10,15 +10,24 @@ Poutly::Application.configure do
   config.whiny_nils = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'rorywalker.com',
-    :user_name            => 'payment.reminders.app@gmail.com',
-    :password             => 'Qwerty!@#',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+  #config.action_mailer.smtp_settings = {
+   # :address              => "smtp.gmail.com",
+    #:port                 => 587,
+    #:domain               => 'rorywalker.com',
+    #:user_name            => 'payment.reminders.app@gmail.com',
+    #:password             => 'Qwerty!@#',
+    #:authentication       => 'plain',
+    #:enable_starttls_auto => true  }
 
+  ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SGuser'],
+  :password       => ENV['SGpass'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
 
  
   # Show full error reports and disable caching

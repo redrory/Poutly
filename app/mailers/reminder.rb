@@ -1,5 +1,5 @@
 class Reminder < ActionMailer::Base
-  default from: "notice@poutly.com",
+  default from: "PaymentReminder@poutly.com",
   	:return_path => "reminder@poutly.com"
 
   	def payment_reminder(client,user)
@@ -26,7 +26,7 @@ class Reminder < ActionMailer::Base
       @amount = amount
       @due_date = due_date
       @client = Client.find(id)
-      mail(:to =>email)
+      mail(:to =>email, :subject => "Daily Reminder from ")
       puts "Inside Daily email sent method"
       @client.update_attributes(last_email: Time.now, email_sent: true)
       
@@ -39,7 +39,7 @@ class Reminder < ActionMailer::Base
       @amount = amount
       @due_date = due_date
       @client = Client.find(id)
-      mail(:to =>email)
+      mail(:to =>email, :subject => "Weekly Reminder from ")
       puts "Inside weekly email sent method"
       @client.update_attributes(last_email: Time.now, email_sent: true)
       
@@ -54,7 +54,7 @@ class Reminder < ActionMailer::Base
     end
 
   	def test_mail()
-  		mail(:to =>"rory@rorywalker.com")
+  		mail(:to =>"rory@rorywalker.com", :subject => "Test mail| Test with Eddie")
       puts "After test_mail"
   		
   	end

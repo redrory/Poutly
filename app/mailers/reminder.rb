@@ -19,7 +19,8 @@ class Reminder < ActionMailer::Base
       
     end
 
-    def daily_email(id,email,project_name,name,amount,due_date)
+    def daily_email(user_name,id,email,project_name,name,amount,due_date)
+      @user_name = user_name
       @id = id
       @name = name
       @project_name = project_name

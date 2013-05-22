@@ -42,11 +42,16 @@ class Client < ActiveRecord::Base
 
   def self.weekly_email
     @user = User.all
+
+    @user.each do |u|
+      @user_name = u.name
+    end
+
     @client = Client.all
     @client.each do |c|
       unless c.email.nil? || if c.reminder == "Weekly" && c.paid == false 
-        puts "Weekly fixed | " + c.email
-        Reminder.weekly_email(c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+        puts "Weekly fixed | User Name_" + @user_name + "|  Client Name_" + c.name
+        Reminder.weekly_email(@user_name,c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
       end
     end
     end

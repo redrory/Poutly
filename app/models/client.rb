@@ -31,7 +31,7 @@ class Client < ActiveRecord::Base
       clients = user.clients
       # loop through client and sent params to email
       clients.each do |client|
-        if clients.email? && client.reminder == "Daily" && !client.paid?
+        if client.email? && client.reminder == "Daily" && !client.paid?
           # Visual queue to browser
           puts "Daily |User's name = #{user.name}, Client's name #{client.name}"
           # Send info to action mailer

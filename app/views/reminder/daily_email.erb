@@ -1,16 +1,15 @@
-
 <p>
-Good day <%= @name %>,
+Good day <%= @client.name %>,
 </p>
 
 
-<% if (@due_date - Date.today).to_i > 0 %>
-This is a payment reminder sent from <b><%= @user_name %></b> informing that payment of <b><%= number_to_currency(@amount) %> </b>for <b><%= @project_name %> </b> is due in <b> <%= (@due_date - Date.today).to_i %></b> days. 
+<% if (@client.due_date - Date.today).to_i > 0 %>
+This is a payment reminder sent from <b><%= @client.user.name %></b> informing that payment of <b><%= number_to_currency(@client.amount) %> </b>for <b><%= @client.project_name %> </b> is due in <b> <%= (@client.due_date - Date.today).to_i %></b> days. 
 
 <% else %> 
 
 <p>
-This is a payment reminder sent from <b><%= @user_name %></b> informing that your balance of <b><%= number_to_currency(@amount) %> </b>for <b><%= @project_name %> </b>was overdue as of <b><%= @due_date.to_formatted_s(:long) %></b>.
+This is a payment reminder sent from <b><%= @client.user.name %></b> informing that your balance of <b><%= number_to_currency(@client.amount) %> </b>for <b><%= @client.project_name %> </b>was overdue as of <b><%= @client.due_date.to_formatted_s(:long) %></b>.
 </p>
 
 <p>
@@ -20,13 +19,10 @@ Please arrange payment of this account today or, if you cannot make full payment
 <p>
 If payment has recently been made, please accept our thanks and ignore this reminder.
 </p>
-
+Payment Reminder
+C/O <%= @client.user.name %>
 
 <% end %>
 
 <p>Regards, </p>
-
-
-
-
 

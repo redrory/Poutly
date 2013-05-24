@@ -20,6 +20,7 @@ class Reminder < ActionMailer::Base
     end
 
     def daily_email(client)
+      @client = client
       mail(:to => client.email, :subject => "Reminder from #{client.user.name}")
       puts "Insider daily email sent method"
       client.update_attributes(last_email: Time.now, email_sent: true)

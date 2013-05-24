@@ -23,8 +23,28 @@ class Client < ActiveRecord::Base
   end
 
   def self.daily_email
-    @user = User.all
+    # Retrieve all users
+    @users = User.all
 
+    # Loop through users and get their clients
+    @users.each do |user|
+      clients = user.clients
+      # loop through client and sent params to email
+      clients.each do |client|
+        if clients.email? && client.reminder == "Daily" && !client.paid?
+          # Visual queue to browser
+          puts "Daily |User's name = #{user.name}, Client's name #{client.name}"
+          # Send info to action mailer
+          Reminder.daily_email(client).deliver
+        end
+      end
+    end
+  end
+
+
+    # Old Code
+=begin 
+    @user = User.all
     @user.each do |u|
       @user_name = u.name
     end
@@ -38,7 +58,8 @@ class Client < ActiveRecord::Base
       end
     end
     end
-  end
+=end
+
 
   def self.weekly_email
     @user = User.all

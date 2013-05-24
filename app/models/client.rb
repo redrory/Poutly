@@ -41,26 +41,6 @@ class Client < ActiveRecord::Base
     end
   end
 
-
-    # Old Code
-=begin 
-    @user = User.all
-    @user.each do |u|
-      @user_name = u.name
-    end
-    @client = Client.all
-    @client.each do |c|
-      unless c.email.nil? || if c.reminder == "Daily" && c.paid == false 
-        puts "Daily fixed | Company Name " + @user_name + "Client Name | " + c.name
-        Reminder.test_mail.deliver
-        Reminder.daily_email(@user_name,c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
-        
-      end
-    end
-    end
-=end
-
-
   def self.weekly_email
     @user = User.all
 

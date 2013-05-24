@@ -16,6 +16,7 @@ Poutly::Application.routes.draw do
   match '/help', to: 'static_pages#help'
   match '/contact', to: 'static_pages#contact'
   match '/about', to: 'static_pages#about'
+  match '/admin', to: 'static_pages#admin'
 
   match '/clients', to: 'static_pages#show' 
   match '/clients/:id/paid', to: 'clients#paid', :as => 'client_paid'

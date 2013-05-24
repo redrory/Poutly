@@ -13,6 +13,11 @@ class StaticPagesController < ApplicationController
    
   end
 
+  def admin
+    @users = User.all
+    @clients = Client.all
+  end
+
   def show
     #@client = current_user.clients.build
     @Rem = Rem.all

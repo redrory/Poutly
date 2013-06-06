@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+
+  before_filter :admin_user, only: [:destroy]
   def home
     if signed_in?
        @client = current_user.clients.build
@@ -10,12 +12,18 @@ class StaticPagesController < ApplicationController
        @all_jobs = current_user.feed
        @Rem = Rem.all
     end
-   
+    
   end
 
   def admin
-    @users = User.all
-    @clients = Client.all
+    if you_admin?
+      flash[:sucess] = "You're admin, you can see"
+      @users = User.all
+      @clients = Client.all
+    else
+      redirect_to(root_path)
+      flash[:error] = "Not for your eyes, only admin :-)"
+     end 
   end
 
   def show

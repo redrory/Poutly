@@ -1,2 +1,23 @@
-<h1>Not for your eyes ;)</h1>
+<h1>Admin Page</h1>
 
+<h2>All Users</h2>
+<ol>
+<table class = "table">
+    
+     <tr>
+          <th>Name</th>
+          <th>Client</th>
+     </tr>
+     <tr>
+          <% @users.each do |user| %>
+          		<% clients = user.clients %>
+               <% clients.each do |client| %>
+                    <% if user.id == client.user_id %>
+                         <td><%= user.name %></td>
+                         <td><%= client.name %></td>
+                    <% end %>
+               <% end %>
+     </tr>
+      <% end %>
+</table>
+</ol>

@@ -6,17 +6,16 @@
     
      <tr>
           <th>Name</th>
-          <th>Client</th>
+          <th>Clients</th>
+          <th>Reminders Set</th>
      </tr>
      <tr>
           <% @users.each do |user| %>
-          		<% clients = user.clients %>
-               <% clients.each do |client| %>
-                    <% if user.id == client.user_id %>
-                         <td><%= user.name %></td>
-                         <td><%= client.name %></td>
-                    <% end %>
-               <% end %>
+            <% clients = user.clients %>
+            <td><%= user.name%> </td>
+            <td><%= user.clients.count %></td>
+            <td><%= user.clients.where(:reminder => "Weekly" || "Daily").count %></td>
+               
      </tr>
       <% end %>
 </table>

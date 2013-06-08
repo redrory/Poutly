@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
 
   def admin
     if you_admin?
-      flash[:sucess] = "You're admin, you can see"
+      flash[:success] = "You're admin, you can see"
       @users = User.all
       @clients = Client.all
     else

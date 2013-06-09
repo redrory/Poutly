@@ -1,10 +1,6 @@
 <% if feed.empty? %>
-No client added yet
-
+  No client added yet
 <% else %>
-
-
-
 
 <table class = "table table-striped table-hover">
   <tr>  
@@ -35,8 +31,7 @@ No client added yet
     <td> <i class="icon-bullhorn"></i></td>
 
     <% else %>
-
-    <td></td>
+      <td></td>
     <% end %>
     
     <td>
@@ -65,13 +60,11 @@ No client added yet
       </div>
     </div>
 
-
  <% end %>
 </table>
 
 <p class = "lead text-right"> Total = <%= number_to_currency(@total)%></p>
 <% end %>
-
 
 <script type="text/javascript">
   $(document).ready(function (){

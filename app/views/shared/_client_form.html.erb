@@ -2,7 +2,6 @@
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
 		<%= f.text_field :name, placeholder: "Name of Client" %>
-		<%#= f.text_field :email, placeholder: "Emial of Client" %>
 		<%= f.text_field :project_name, placeholder: "Name of Project" %>
 		<%= f.date_select :due_date, placeholder: "Payment Due Date", :start_year =>Time.now.year, :end_year =>Time.now.year + 1 %>
 		<%= f.text_field :amount, placeholder: "Amount due" %>

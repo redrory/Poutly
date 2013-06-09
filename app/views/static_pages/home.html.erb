@@ -42,7 +42,7 @@
 
 	</ul>
 
-	<span class="label label-info btn-custom">  Mail Reminder Set  <span class="icon-bullhorn"></span></span>
+	<span class="label label-info btn-custom">  Mail Reminder Set <span class="icon-bullhorn"></span></span>
 	<span class="label label-info btn-custom">  Mark As Paid  <span class="icon-ok"></span></span>
 	<span class="label label-info btn-custom">  Create Mail Reminder  <span class="icon-envelope"></span></span>
 	<span class="label label-info btn-custom">  Edit Item  <span class="icon-edit"></span></span>
@@ -50,54 +50,43 @@
 		</div>
 	</div>
 
-	
-
-
 	<% else %>
+			<div class= "center hero-unit">
 
+				<h1>Payment Reminders</h1>
+				 <p>
+					"Poutly helps small businesses get paid by sending professional email reminders to past-due clients."
+				</p> 
+				<%= link_to "Sign up for free Trial", signup_path, class: "btn btn-large btn-primary btn-custom "%>
+			</div>
 
-<div class= "center hero-unit">
+			<div class= "row">
+				<div class = "center span4">
+					<i class="icon-group icon-large"></i>
+					<h2>Reduces client's payment time </h2> 
+					<p>Gently remind your clients to pay you, on-time</p>
+				</div>
 
-	<h1>Payment Reminders</h1>
-	 <p>
-		"Poutly helps small businesses get paid by sending professional email reminders to past-due clients."
-		<!-- Gently remind your clients to pay you, on-time. -->
-	</p> 
-	<%= link_to "Sign up for free Trial", signup_path, class: "btn btn-large btn-primary btn-custom "%>
-	<%#= link_to "See Plans and How it works", signup_path, class: "btn btn-large btn-primary btn-custom link-text"%>
-</div>
+				<div class = "center span4 ">
+					<i class="icon-time icon-large"></i>
+					<h2>Saves Time</h2>
+					<p>Automatically notifies clients who haven't paid</p>
+				</div>
 
-<div class= "row">
-	<div class = "center span4">
-		<i class="icon-group icon-large"></i>
-		<h2>Reduces client's payment time </h2> 
-		<p>Gently remind your clients to pay you, on-time</p>
-	</div>
+					<div class = "center span4">
+					<i class="icon-money icon-large"></i> 
+					<h2>Get you paid</h2>
+					<p>The invoices that get chased get paid</p>
+				</div>
 
-	<div class = "center span4 ">
-		<i class="icon-time icon-large"></i>
-		<h2>Saves Time</h2>
-		<p>Automatically notifies clients who haven't paid</p>
-	</div>
+			</div>
 
-		<div class = "center span4">
-		<i class="icon-money icon-large"></i> 
-		<h2>Get you paid</h2>
-		<p>The invoices that get chased get paid</p>
-	</div>
-
-</div>
-
-
-<hr>
-<div class= "row">
-	<div class = "center span7 offset3">
-		<h3>Worth <div class = "counter-no">$21225</div> of invoices paid faster!</h3>
-		
-	</div>
-
-
-</div>
-
-
-<% end %>
+			<hr>
+			<div class= "row">
+				<div class = "center span7 offset3">
+					<h3>Worth <div class = "counter-no">$21225</div> of invoices paid faster!</h3>
+					
+				</div>
+			</div>
+			
+			<% end %>

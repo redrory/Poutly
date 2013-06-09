@@ -8,7 +8,7 @@ class Client < ActiveRecord::Base
   validates :amount, presence: true, :on =>:create
   validates :name, presence: true
 
-  validate :presence_of_email, :on => :client_reminder
+  validate :presence_of_email#, :on => :client_reminder
 
   default_scope order: 'clients.created_at DESC'
 

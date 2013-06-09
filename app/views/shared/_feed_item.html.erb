@@ -54,12 +54,9 @@ No client added yet
       <div class="e_field">
         <p> Set Reminder for <%= client.name %>
           <%= f.email_field :email, placeholder: "email address to send reminder" %>
-          <!-- Daily <%#=  check_box("client", "reminder", {}, "Daily")%> -->
-
+          <!-- Display reminder options -->
           <% @Rem.each do |r| %>
-          <%= f.radio_button :reminder, r.name%>
-          <%#= f.check_box("reminder", {}, r.name) %>
-          <%#= check_box_tag "client[reminder][]", r.name  %>
+          <%= f.radio_button :reminder, r.name, :checked => true%>
           <%= r.name %>
           <% end %>
           <%= f.submit "Set ", class: "btn btn-small btn-primary"%>

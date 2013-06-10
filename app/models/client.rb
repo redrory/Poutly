@@ -42,20 +42,26 @@ class Client < ActiveRecord::Base
   end
 
   def self.weekly_email
-    @user = User.all
+    # Retrieve all users
+    @users = User.all
 
-    @user.each do |u|
-      @user_name = u.name
-    end
-
-    @client = Client.all
-    @client.each do |c|
-      unless c.email.nil? || if c.reminder == "Weekly" && c.paid == false 
-        puts "Weekly fixed | User Name_" + @user_name + "|  Client Name_" + c.name
-        Reminder.weekly_email(@user_name,c.id,c.email,c.project_name,c.name,c.amount,c.due_date).deliver
+    # Loop through each user
+    @users.each do |user|
+      clients = user.clients
+      #loop through clients and send params to email
+      clients.each do |client|
+        if client.email? && client.reminder == "Weekly" && !client.paid?
+          # Visual queue to browser
+          puts "Weekly | User's name = #{user.name}, Client's name #{client.name} "
+          #send into to action mailer
+          Reminder.weekly_email(client).deliver
+        end
       end
     end
-    end
+  end
+
+  def self.mic
+    puts "hello friend"
   end
 
 end

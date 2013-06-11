@@ -6,11 +6,11 @@ task :daily_email => :environment do
 end
 
 task :weekly_email => :environment do
-  #if Time.now.monday?
+  if Time.now.monday?
   	puts "Running Client weekly email"
   	Client.weekly_email
   	puts "done."
-	#end
+	end
 end
 
 task :send_reminders => :environment do
